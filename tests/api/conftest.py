@@ -19,3 +19,8 @@ def register_user_endpoint():
 @pytest.fixture()
 def update_delete_user_endpoint():
     return f"/users/1"
+
+
+@pytest.fixture()
+def login_endpoint():
+    return "/login"
