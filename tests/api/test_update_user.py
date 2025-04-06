@@ -1,20 +1,19 @@
 import json
-import string
-import random
 from os import path
 
+import faker
 import requests
 from jsonschema.validators import validate
 
 
 def test_update_user_job(base_url, update_delete_user_endpoint):
-    random_string = ''.join(random.choices(string.ascii_letters, k=random.randint(1, 10)))
+    random_job = faker.Faker().job()
     user_data = {
         "name": "morpheus",
-        "job": f"{random_string}"
+        "job": f"{random_job}"
     }
     response = requests.put(f"{base_url}{update_delete_user_endpoint}", json=user_data)
-    assert response.json()["job"] == random_string
+    assert response.json()["job"] == random_job
 
 
 def test_update_user_schema(base_url, update_delete_user_endpoint):
