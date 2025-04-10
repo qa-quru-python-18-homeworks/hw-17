@@ -25,6 +25,7 @@ def load_schema():
     def _load(schema_name: str):
         schema_path = os.path.join(
             os.path.dirname(__file__),
+            "../..",
             "resources",
             "schemas",
             f"{schema_name}.json"
